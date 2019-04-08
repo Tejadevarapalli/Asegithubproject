@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
 import {FileuploadService} from "../fileupload.service";
 import {saveas} from 'file-saver';
@@ -14,6 +15,7 @@ import { UploadService } from  '../upload.service';
 })
 export class HomeeComponent implements OnInit {
 
+  form1: FormGroup;
   uploader:FileUploader = new FileUploader({url: uri});
 
   attachmentList:any = [];
@@ -34,8 +36,18 @@ export class HomeeComponent implements OnInit {
       );
   }
 
-  ngOnInit() {}
-
+  ngOnInit() {
+    this.form1 = new FormGroup(
+      {
+        Projecttitle : new FormControl(),
+        ProjectDescription : new FormControl(),
+        GithubURL : new FormControl()
+      });
+  }
+  onSubmit1() {
+    console.log((this.form1.value)
+    );
+  }
 }
 
 
