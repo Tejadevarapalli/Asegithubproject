@@ -1,0 +1,10 @@
+https://ionicframework.com/docs/native/camera/
+
+
+npm install --save @ionic-native/camera @ionic-native/file @ionic-native/file-path @ionic-native/transfer
+ionic plugin add cordova-plugin-camera --save
+ionic plugin add cordova-plugin-file --save
+ionic plugin add cordova-plugin-file-transfer --save
+ionic plugin add cordova-plugin-filepath --save
+
+https://scanbotsdk.github.io/documentation/cordova/
