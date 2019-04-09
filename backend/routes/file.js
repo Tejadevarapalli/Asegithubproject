@@ -2,7 +2,7 @@ var express = require('express');
 var _router = express.Router();
 var multer = require('multer');
 var path = require('path');
-
+const mongoose = require('mongoose');
 
 var store = multer.diskStorage({
     destination : function(req,file,cb){
@@ -31,6 +31,7 @@ _router.post('/upload',function(req,res,next){
         return res.json({originalname:req.file.originalname, uploadname:req.file.filename});
     });
 });
+
 
 _router.post('/download', function(req,res,next){
     filepath = path.join(__dirname,'./uploads') +'/'+ req.body.filename;
