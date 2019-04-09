@@ -3,6 +3,12 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
 import {FileuploadService} from "../fileupload.service";
 import {saveas} from 'file-saver';
+import { mongoService } from '../mongo.service';
+import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+};
 
 const uri = 'http://localhost:3000/file/upload';
 /*import { FormBuilder, FormGroup } from  '@angular/forms';
@@ -20,7 +26,7 @@ export class HomeeComponent implements OnInit {
 
   attachmentList:any = [];
 
-  constructor(private _fileService: FileuploadService) {
+  constructor(private _fileService: FileuploadService, public formDetails: mongoService) {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       this.attachmentList.push(JSON.parse(response));
     }
@@ -45,8 +51,10 @@ export class HomeeComponent implements OnInit {
       });
   }
   onSubmit1() {
-    console.log((this.form1.value)
-    );
+    console.log(this.form1.value),
+    this.formDetails.sendDetails(this.form1.value).subscribe(result => {
+      console.log('login check point result - ', result);
+    });
   }
 }
 
