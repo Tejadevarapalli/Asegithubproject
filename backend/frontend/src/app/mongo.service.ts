@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class mongoService {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, public value: any) {}
 
 
   sendDetails(formdata) {
@@ -23,5 +23,12 @@ export class mongoService {
   signupDetails(formdata) {
     console.log('checkpoint',formdata);
     return this.http.post('http://localhost:3000/signupDetails', formdata);
+  }
+  signinDetails(formdata) {
+    console.log('checkpoint',formdata);
+    return this.http.post('http://localhost:3000/signinDetails', formdata);
+  }
+  mymodelDetails(){
+    return this.http.get('http://localhost:3000/mymodelsDetails');
   }
 }
