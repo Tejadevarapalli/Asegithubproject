@@ -15,6 +15,7 @@ import { environment} from '../environments/environment';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FileUploadModule } from'ng2-file-upload';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { FileUploadModule } from'ng2-file-upload';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ProfileComponent
+    ProfileComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

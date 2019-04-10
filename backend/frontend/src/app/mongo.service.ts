@@ -20,4 +20,8 @@ export class mongoService {
     console.log('checkpoint',formdata);
     return this.http.post('http://localhost:3000/sendDetails', formdata);
    }
+  signupDetails(formdata) {
+    console.log('checkpoint',formdata);
+    return this.http.post('http://localhost:3000/signupDetails', formdata);
+  }
 }
