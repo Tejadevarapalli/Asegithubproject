@@ -29,7 +29,30 @@ router.post('/signupDetails', function (req, res, next) {
     });
 });
 
+router.post('/signinDetails' ,function(req,res,next) {
+    console.log(req.body);
+    signup.find({'EmailID': req.body.EmailID}, function (err, user) {
+        console.log(user);
+        if (user.length <= 0){
+            res.json('no user available register to login');
+        }else{
+            if(user[0]) {
+                if (user[0].Password == req.body.Password) {
+                    res.json("Success");
+                }else {
+                    res.json("incorrect password")
+                }
+            }
+        }
+    });
+});
 
+
+router.get('/mymodelsDetails', function(req, res, next) {
+    modal.find({}).toArray(function(err, result) {
+        console.log(result);
+    res.send(result)});
+});
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.send('welcome to backend');

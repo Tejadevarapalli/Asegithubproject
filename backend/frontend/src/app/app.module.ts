@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { FileUploadModule } from'ng2-file-upload';
 import { SignupComponent } from './signup/signup.component';
+import { SigninComponent } from './signin/signin.component';
+import { MymodelsComponent } from './mymodels/mymodels.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { SignupComponent } from './signup/signup.component';
     RegisterComponent,
     HomeComponent,
     ProfileComponent,
-    SignupComponent
+    SignupComponent,
+    SigninComponent,
+    MymodelsComponent
   ],
   imports: [
     BrowserModule,
