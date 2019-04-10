@@ -28,6 +28,9 @@ export class HomeeComponent implements OnInit {
 
   constructor(private _fileService: FileuploadService, public formDetails: mongoService) {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
+      console.log(this.uploader);
+      console.log(item);
+      console.log(response);
       this.attachmentList.push(JSON.parse(response));
     }
   }
