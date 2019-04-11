@@ -12,8 +12,8 @@ export class MymodelsComponent implements OnInit {
 
   ngOnInit() {
     this.getDetails.mymodelDetails().subscribe(result => {
-      console.log('login check point result - ', result);
-    });
+    console.log('login check point result - ', result);
+     });
   }
 
 }

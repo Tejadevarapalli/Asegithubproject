@@ -13,8 +13,7 @@ const httpOptions = {
 })
 export class mongoService {
 
-  constructor(private http: HttpClient, public value: any) {}
-
+  constructor(private http: HttpClient) {}
 
   sendDetails(formdata) {
     console.log('checkpoint',formdata);
