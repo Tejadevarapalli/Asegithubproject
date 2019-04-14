@@ -2,11 +2,14 @@ var express = require('express');
 var _router = express.Router();
 var multer = require('multer');
 var path = require('path');
+var fs=require('fs');
+var file= require('file-system')
 const mongoose = require('mongoose');
 
 var store = multer.diskStorage({
     destination : function(req,file,cb){
        // cb(null, './uploads');
+
         cb(null,path.resolve(__dirname, './uploads'));
         console.log('multer next Teja:',cb);
         console.log(__dirname);
@@ -20,6 +23,7 @@ var store = multer.diskStorage({
 var upload = multer({storage:store}).single('file');
 
 _router.post('/upload',function(req,res,next){
+    console.log(req);
     upload(req,res,function(err){
         console.log('uploadrequest:',req);
         if(err){

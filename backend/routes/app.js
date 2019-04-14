@@ -38,6 +38,14 @@ router.get('/mymodelsDetails',function (req ,res){
     });
 });
 
+router.post('/viewDetails',function(req,res){
+    console.log(req.body.title);
+    modal.find({Projecttitle: req.body.title},function(err,data){
+      console.log(data);
+      res.json(data);
+    })
+})
+
 
 
 router.post('/signinDetails' ,function(req,res,next) {

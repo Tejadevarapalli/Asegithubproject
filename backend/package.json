@@ -13,6 +13,7 @@
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "express": "^4.16.4",
+    "file-system": "^2.2.2",
     "hbs": "^4.0.3",
     "mongoose": "^5.5.0",
     "morgan": "^1.9.1",

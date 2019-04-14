@@ -18,6 +18,7 @@ import { FileUploadModule } from'ng2-file-upload';
 import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { MymodelsComponent } from './mymodels/mymodels.component';
+import { ViewComponent } from './view/view.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { MymodelsComponent } from './mymodels/mymodels.component';
     ProfileComponent,
     SignupComponent,
     SigninComponent,
-    MymodelsComponent
+    MymodelsComponent,
+    ViewComponent
   ],
   imports: [
     BrowserModule,

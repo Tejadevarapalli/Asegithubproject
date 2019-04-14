@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
-import {FileuploadService} from "../fileupload.service";
+import {FileuploadService} from '../fileupload.service';
 import {saveas} from 'file-saver';
 import { mongoService } from '../mongo.service';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
@@ -11,18 +11,16 @@ const httpOptions = {
 };
 
 const uri = 'http://localhost:3000/file/upload';
-/*import { FormBuilder, FormGroup } from  '@angular/forms';
-import { UploadService } from  '../upload.service';
-*/
+
 @Component({
   selector: 'app-homee',
   templateUrl: './homee.component.html',
   styleUrls: ['./homee.component.css']
 })
 export class HomeeComponent implements OnInit {
-
+public projecttitle: any;
   form1: FormGroup;
-  uploader:FileUploader = new FileUploader({url: uri});
+  uploader: FileUploader = new FileUploader({url: uri});
 
   attachmentList:any = [];
 
@@ -32,7 +30,7 @@ export class HomeeComponent implements OnInit {
       console.log(item);
       console.log(response);
       this.attachmentList.push(JSON.parse(response));
-    }
+    };
   }
 
   download(index){
