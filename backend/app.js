@@ -30,7 +30,5 @@ app.use(function(req, res, next) {
 
 app.use('/file',fileRoutes);
 app.use('/', appRoutes);
-
-
-
 app.listen(3000);
+

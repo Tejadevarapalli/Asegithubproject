@@ -8,6 +8,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent} from './signup/signup.component';
 import { SigninComponent} from './signin/signin.component';
 import { MymodelsComponent} from  './mymodels/mymodels.component';
+import {ViewComponent} from './view/view.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},
-  {path: 'mymodels', component: MymodelsComponent}
+  {path: 'mymodels', component: MymodelsComponent},
+  {path: 'view/:id', component: ViewComponent}
 ];
 
 @NgModule({
