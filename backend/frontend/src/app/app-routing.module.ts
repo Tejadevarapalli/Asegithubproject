@@ -6,8 +6,8 @@ import { RegisterComponent } from './register/register.component';
 import { HomeComponent } from './home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignupComponent} from './signup/signup.component';
-import { SigninComponent} from "./signin/signin.component";
-import { MymodelsComponent } from  './mymodels/mymodels.component'
+import { SigninComponent} from './signin/signin.component';
+import { MymodelsComponent} from  './mymodels/mymodels.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},

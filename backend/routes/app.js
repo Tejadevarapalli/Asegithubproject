@@ -30,6 +30,16 @@ router.post('/signupDetails', function (req, res, next) {
     });
 });
 
+
+router.get('/mymodelsDetails',function (req ,res){
+    modal.find({},function(err,data){
+        console.log("all the data"+data);
+        res.json(data);
+    });
+});
+
+
+
 router.post('/signinDetails' ,function(req,res,next) {
     console.log(req.body);
     signup.find({'EmailID': req.body.EmailID}, function (err, user) {
