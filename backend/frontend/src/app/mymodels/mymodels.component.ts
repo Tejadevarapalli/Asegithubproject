@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
+
 import {mongoService} from '../mongo.service';
-=======
 import {mongoService} from "../mongo.service";
 import {IProject} from "./project";
->>>>>>> a03d2ffcc076f11ac5ff2bb8b1a3505e782e06fc
+
 
 @Component({
   selector: 'app-mymodels',
