@@ -30,7 +30,7 @@ router.post('/signupDetails', function (req, res, next) {
         if (data.length <= 0) {
             if (req.body.EmailID !== null && req.body.Password !== null) {
                 signup.create(req.body, function (err, post) {
-                    console.log(post)
+                    console.log(post);
                     if (err) return next(err);
                     res.json(post);
                 });

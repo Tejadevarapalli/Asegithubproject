@@ -12,7 +12,7 @@ import {ViewComponent} from './view/view.component';
 import {ModelsComponent} from './models/models.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/signin', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'home/:id', component: HomeComponent},
   {path: 'upload', component: HomeeComponent},
