@@ -45,12 +45,22 @@ router.post('/signupDetails', function (req, res, next) {
 
 
 
-router.get('/mymodelsDetails',function (req ,res){
+ router.post('/mymodelsDetails',function (req ,res){
+     console.log(req.body.id);
+     modal.find({User: req.body.id},function(err,data){
+         console.log("user specific data"+data);
+         res.json(data);
+     });
+});
+
+
+router.get('/modelsDetails',function (req ,res){
     modal.find({},function(err,data){
         console.log("all the data"+data);
         res.json(data);
     });
 });
+
 
 router.post('/viewDetails',function(req,res){
     console.log(req.body.title);
@@ -82,11 +92,7 @@ router.post('/signinDetails' ,function(req,res,next) {
 });
 
 
-router.get('/mymodelsDetails', function(req, res, next) {
-    modal.find({}).toArray(function(err, result) {
-        console.log(result);
-    res.send(result)});
-});
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.send('welcome to backend');

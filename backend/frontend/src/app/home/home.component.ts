@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,13 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 display = 'none';
-  constructor() {
+  constructor(private route: ActivatedRoute,private router: Router) {
   }
 
   ngOnInit() {
   }
 
-  openModal(){
+  openModal() {
     this.display = 'block';
   }
 
@@ -21,6 +22,10 @@ display = 'none';
     this.display = 'none';
   }
 
+  mymodels()
+  {
+    this.router.navigateByUrl('/mymodels/' + this.route.snapshot.paramMap.get('id'));
+  }
 }
 
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {mongoService} from '../mongo.service';
 import {IProject} from './project';
-
+import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-mymodels',
@@ -29,15 +29,15 @@ export class MymodelsComponent implements OnInit {
       project.Projecttitle.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
-  constructor(public getDetails: mongoService) {
+  constructor(public getDetails: mongoService, public route: ActivatedRoute) {
     this.filteredproject = this.projects;
   }
 
   ngOnInit() {
-    this.getDetails.mymodelDetails().subscribe(result => {
+    console.log(this.route.snapshot.paramMap.get('id'));
+    this.getDetails.mymodelDetails(this.route.snapshot.paramMap.get('id')).subscribe(result => {
       this.projects = result;
       this.filteredproject = this.projects;
-
       console.log('login check point result - ', result);
      });
 

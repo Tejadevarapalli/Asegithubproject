@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { mongoService} from '../mongo.service';
 
 @Component({
   selector: 'app-models',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: mongoService) { }
 
   ngOnInit() {
+    this.service.modelDetails().subscribe(result => {
+      console.log('login check point result - ', result);
+    });
+
   }
 
 }

@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {Observable, of, throwError} from 'rxjs';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import {catchError, tap, map} from 'rxjs/operators';
-import {until} from "selenium-webdriver";
+import {until} from 'selenium-webdriver';
 import titleContains = until.titleContains;
 
 
@@ -14,19 +14,25 @@ export class mongoService {
   constructor(private http: HttpClient) {}
 
   sendDetails(formdata) {
-    console.log('checkpoint',formdata);
+    console.log('checkpoint', formdata);
     return this.http.post('http://localhost:3000/sendDetails', formdata);
    }
   signupDetails(formdata) {
-    console.log('checkpoint',formdata);
+    console.log('checkpoint', formdata);
     return this.http.post('http://localhost:3000/signupDetails', formdata);
   }
   signinDetails(formdata) {
-    console.log('checkpoint',formdata);
+    console.log('checkpoint', formdata);
     return this.http.post('http://localhost:3000/signinDetails', formdata);
   }
-  mymodelDetails() {
-    return this.http.get('http://localhost:3000/mymodelsDetails');
+  mymodelDetails(id) {
+    let user = { id };
+    console.log(user);
+    return this.http.post('http://localhost:3000/mymodelsDetails', user);
+  }
+
+  modelDetails() {
+    return this.http.get('http://localhost:3000/modelsDetails');
   }
   viewdetails(title) {
    let id = { title};
