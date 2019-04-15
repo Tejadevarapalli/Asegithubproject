@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
 import {mongoService} from '../mongo.service';
-import {mongoService} from "../mongo.service";
-import {IProject} from "./project";
+import {IProject} from './project';
 
 
 @Component({
@@ -37,14 +35,11 @@ export class MymodelsComponent implements OnInit {
 
   ngOnInit() {
     this.getDetails.mymodelDetails().subscribe(result => {
-      this.projects=result;
+      this.projects = result;
       this.filteredproject = this.projects;
 
       console.log('login check point result - ', result);
      });
-
-
-
 
   }
 }
