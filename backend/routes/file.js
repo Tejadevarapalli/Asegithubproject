@@ -31,7 +31,7 @@ _router.post('/upload',function(req,res,next){
             return res.status(501).json({error:err});
         }
        // console.log( upload)
-        //do all database record saving activit
+        //do all database record saving activity
         console.log('filename',req.file.filename);
         return res.json({originalname:req.file.originalname, uploadname:req.file.filename});
     });

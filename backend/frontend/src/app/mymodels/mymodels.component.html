@@ -24,7 +24,7 @@
       <tr *ngFor='let project of filteredproject'>
 
         <td>
-          <a [routerLink]="['/mymodels', project.Projecttitle]">
+          <a [routerLink]="['/view/'+ project.Projecttitle]">
             {{ project.Projecttitle }}
           </a>
         </td>
