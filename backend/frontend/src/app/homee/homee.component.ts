@@ -5,7 +5,7 @@ import {FileuploadService} from '../fileupload.service';
 import {saveas} from 'file-saver';
 import { mongoService } from '../mongo.service';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-
+import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -24,7 +24,7 @@ public projecttitle: any;
 
   attachmentList:any = [];
 
-  constructor(private _fileService: FileuploadService, public formDetails: mongoService) {
+  constructor(private _fileService: FileuploadService, public formDetails: mongoService, public route: ActivatedRoute) {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       console.log(this.uploader);
       console.log(item);
@@ -46,6 +46,7 @@ public projecttitle: any;
   ngOnInit() {
     this.form1 = new FormGroup(
       {
+        User: new FormControl(),
         Projecttitle : new FormControl(),
         ProjectDescription : new FormControl(),
         GithubURL : new FormControl()
@@ -53,6 +54,7 @@ public projecttitle: any;
   }
   onSubmit1() {
     console.log(this.form1.value),
+      this.form1.value.User = this.route.snapshot.paramMap.get('id');
     this.formDetails.sendDetails(this.form1.value).subscribe(result => {
       console.log('login check point result - ', result);
     });

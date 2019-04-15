@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { SigninComponent } from './signin/signin.component';
 import { MymodelsComponent } from './mymodels/mymodels.component';
 import { ViewComponent } from './view/view.component';
+import { ModelsComponent } from './models/models.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ViewComponent } from './view/view.component';
     SignupComponent,
     SigninComponent,
     MymodelsComponent,
-    ViewComponent
+    ViewComponent,
+    ModelsComponent
   ],
   imports: [
     BrowserModule,

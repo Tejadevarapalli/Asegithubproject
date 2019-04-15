@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {mongoService} from "../mongo.service";
-
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -11,7 +11,7 @@ import {mongoService} from "../mongo.service";
 export class SigninComponent implements OnInit {
 
   form: FormGroup;
-  constructor(public formDetails: mongoService) { }
+  constructor(public formDetails: mongoService,private router: Router) { }
 
   ngOnInit() {
     this.form = new FormGroup(
@@ -22,7 +22,11 @@ export class SigninComponent implements OnInit {
   }
   onSubmit() {
     this.formDetails.signinDetails(this.form.value).subscribe(result => {
-      console.log('login check point result - ', result);
-      });
+      if (result === 'Success') {
+        this.router.navigateByUrl('/home/' + this.form.value.EmailID);
+      } else {
+        console.log('login check point result - ', result);
+      }
+    });
   }
 }

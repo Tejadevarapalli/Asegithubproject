@@ -25,5 +25,4 @@ export class SignupComponent implements OnInit {
         console.log('login check point result - ', result);
       });
   }
-
 }
