@@ -21,7 +21,7 @@ export class SignupComponent implements OnInit {
       });
   }
   onSubmit() {
-    console.log(this.form.value),
+    console.log(this.form.value);
       this.formDetails.signupDetails(this.form.value).subscribe(result => {
         if (result !== 'Please fill the details' && result !== 'User exists') {
           this.router.navigateByUrl('/signin');

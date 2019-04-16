@@ -61,6 +61,14 @@ router.get('/modelsDetails',function (req ,res){
     });
 });
 
+router.post('/profiledetails',function(req,res) {
+    console.log(req.body.userid);
+    signup.find({EmailID: req.body.userid}, function(err,data) {
+        console.log(data);
+        res.json(data);
+    });
+});
+
 
 router.post('/viewDetails',function(req,res){
     console.log(req.body.title);
@@ -99,20 +107,6 @@ router.get('/', function(req, res, next) {
 });
 
 
-//
-// router.post('/sendDetails',function(req,res,next) {
-//
-//     console.log('in senddetails',req.body);
-//     let storeDetails = new homeedata(req.body);
-//     storeDetails.save({}, (err, result)=> {
-//         if(result) {
-//             res.send('success');
-//         }
-//         else {
-//             console.error(err);
-//             res.send('user not saved');
-//         }
-//     })
-// });
+
 
 module.exports = router;

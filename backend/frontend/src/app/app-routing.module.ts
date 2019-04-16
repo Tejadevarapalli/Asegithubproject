@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home/:id', component: HomeComponent},
   {path: 'upload', component: HomeeComponent},
-  {path: 'profile', component: ProfileComponent},
+  {path: 'profile/:id', component: ProfileComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent},

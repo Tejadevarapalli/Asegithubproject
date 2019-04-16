@@ -36,6 +36,10 @@ export class mongoService {
   }
   viewdetails(title) {
    let id = { title};
-    return this.http.post('http://localhost:3000/viewDetails', id);
+   return this.http.post('http://localhost:3000/viewDetails', id);
+  }
+  profiledetails(userid) {
+    let id = { userid };
+    return this.http.post('http://localhost:3000/profiledetails', id);
   }
 }

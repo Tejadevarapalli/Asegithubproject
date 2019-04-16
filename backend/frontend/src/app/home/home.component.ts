@@ -26,6 +26,11 @@ display = 'none';
   {
     this.router.navigateByUrl('/mymodels/' + this.route.snapshot.paramMap.get('id'));
   }
+
+  profile()
+  {
+    this.router.navigateByUrl('/profile/' + this.route.snapshot.paramMap.get('id'));
+  }
 }
 
 

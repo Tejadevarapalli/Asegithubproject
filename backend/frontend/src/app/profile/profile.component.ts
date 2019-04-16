@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
+import { mongoService} from '../mongo.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router, public route: ActivatedRoute, public service: mongoService) { }
 
   ngOnInit() {
+    this.service.profiledetails(this.route.snapshot.paramMap.get('id')).subscribe(details => {
+      console.log(details);
+    });
   }
 
 }
