@@ -47,4 +47,9 @@ export class mongoService {
     let name = { element};
     return this.http.post('http://localhost:3000/Likecount', name);
   }
+
+  Deletemodal( element ) {
+    let name = { element};
+    return this.http.post('http://localhost:3000/Deletemodal', name);
+  }
 }

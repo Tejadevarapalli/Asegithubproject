@@ -118,7 +118,19 @@ router.post('/likecount',function (req ,res){
     });
 });
 
-
+router.post('/Deletemodal',function(req, res) {
+    console.log(req.body.element);
+    modal.find({Projecttitle: req.body.element}, function (err, data) {
+        console.log(data[0]._id);
+        modal.remove({_id: data[0]._id}).then((output)=>{
+if(output){
+    res.json('Modal got deleted');
+}
+else
+    res.json('Modal doesnt exist');
+        });
+    });
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

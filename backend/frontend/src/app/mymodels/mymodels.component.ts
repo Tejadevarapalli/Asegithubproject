@@ -44,8 +44,15 @@ export class MymodelsComponent implements OnInit {
       this.filteredproject = this.projects;
      // console.log('login check point result - ', result);
      });
-    
 
 
+  }
+
+  deletemodal(element) {
+    console.log(element);
+    this.getDetails.Deletemodal(element).subscribe(result => {
+      console.log(result);
+      alert(result);
+    });
   }
 }

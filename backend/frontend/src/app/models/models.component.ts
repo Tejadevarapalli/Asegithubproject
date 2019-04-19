@@ -42,15 +42,10 @@ export class ModelsComponent implements OnInit {
     });
   }
 
-
-
     like(element) {
       console.log(element);
-      this.service.Likecount(element).subscribe( result => {
+      this.service.Likecount(element).subscribe(result => {
         console.log(result);
-      })
+      });
     }
-
-
-
 }

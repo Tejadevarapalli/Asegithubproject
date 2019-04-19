@@ -6,6 +6,8 @@ import {saveas} from 'file-saver';
 import { mongoService } from '../mongo.service';
 import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router';
+import {HomeComponent} from '../home/home.component';
+
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
@@ -23,7 +25,8 @@ public projecttitle: any;
   uploader: FileUploader = new FileUploader({url: uri});
   attachmentList: any = [];
 
-  constructor(private _fileService: FileuploadService, public formDetails: mongoService, public route: ActivatedRoute) {
+  constructor(private _fileService: FileuploadService, public formDetails: mongoService,
+              public route: ActivatedRoute,public router: Router, public home: HomeComponent) {
     this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
       console.log(this.uploader);
       console.log(item);
@@ -60,6 +63,7 @@ public projecttitle: any;
       console.log('login check point result - ', result);
       /*this.formDetails.sendfilename(result.uploadname).subscribe( details => {
         console.log(details);});*/
+      this.home.onCloseHandled();
     });
   }
 }
