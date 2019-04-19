@@ -4,8 +4,7 @@ var modaluploadSchema = new mongoose.Schema({
     User: String,
     Projecttitle: String,
     ProjectDescription: String,
-    GithubURL: String,
-    Likes: String
+    GithubURL: String
 });
 const homeedata = mongoose.model('modalupload', modaluploadSchema);
 module.exports=homeedata;

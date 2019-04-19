@@ -3,7 +3,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse header" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
@@ -26,14 +26,16 @@
 </nav>
 
 <!-- nav bar-->
-<div>
-<button type="button" class="btn btn-info btn-lg" (click)="openModal()">Model Upload</button>
+<div class>
+<button type="button" class="btn btn-info btn-lg button" (click)="openModal()">Model Upload</button>
 </div>
+
+
 
 <!--model backdrop-->
 
 <div class="backdrop" [ngStyle]="{'display':display}"></div>
-<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+<div  class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
   <div  class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">

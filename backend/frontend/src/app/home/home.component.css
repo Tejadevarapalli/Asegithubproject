@@ -11,3 +11,16 @@ body.modal-ku {
   width: 750px;
   margin: auto;
 }
+
+.modal-body {
+  max-height: calc(100vh - 210px);
+  overflow-y: auto;
+}
+
+.header{
+  background-color: dodgerblue;
+  padding: 10px;
+  border-radius: 30px;
+}
+
+
