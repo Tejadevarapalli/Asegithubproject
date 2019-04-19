@@ -13,7 +13,7 @@ export class ViewComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, public service: mongoService) { }
   ngOnInit() {
-    let id= this.route.snapshot.paramMap.get('id');
+    let id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.service.viewdetails(id).subscribe(result => {
     console.log(result);

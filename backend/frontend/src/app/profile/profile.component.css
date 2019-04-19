@@ -2,17 +2,23 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+
 .well {
   margin-top:-20px;
-  background-color:#007FBD;
+  background-color:#FFFFFF;
   border:2px solid #0077B2;
   text-align:center;
   cursor:pointer;
   font-size: 25px;
   padding: 15px;
   border-radius: 0px !important;
+  float: left;
 }
-
+.divider{
+  width:50px;
+  height:auto;
+  display:inline-block;
+}
 .well:hover {
   margin-top:-20px;
   background-color:#0077B2;
@@ -50,7 +56,8 @@ body {
   width: 35%;
   height: 15%;
   background-color: #007FBE;
-  padding: 6px 10px 10px;
+  padding: 10px;
+  padding-top: 6px;
   color: #fff;
   text-align: center;
   font-size: 20px;
@@ -65,7 +72,8 @@ body {
   width: 35%;
   height: 15%;
   background-color: #007FBE;
-  padding: 6px 10px 10px;
+  padding: 10px;
+  padding-top: 6px;
   color: #fff;
   text-align: center;
   font-size: 20px;
