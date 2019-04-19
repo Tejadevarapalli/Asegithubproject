@@ -1,3 +1,42 @@
-<p>
-  models works!
-</p>
+<div class='card'>
+  <div class='card-header' style="font-size: -webkit-xxx-large;text-align: center;font-weight: bold;color:aliceblue;background:cadetblue;height: 83px;text-align: center;">
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Search:</div>
+      <div class='col-md-4'>
+        <input type='text'
+               [(ngModel)]='listFilter' />
+      </div>
+    </div>
+    <br>
+    <div class='table-responsive'>
+      <table class='table'
+             *ngIf='projects && projects.length'>
+        <thead>
+        <tr>
+          <th style="font-size: x-large;text-align: center">Models</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr *ngFor='let project of filteredproject'>
+
+          <td >
+            <a class="projectnames"  [routerLink]="['/view/'+ project.Projecttitle]" style="font-size: x-large;padding-left: 34%;">
+              {{ project.Projecttitle }}
+            </a>
+            <span class="likebtn" style="float: right;padding-right: 37%;">
+          <a (click)="add(project.Projecttitle);" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-thumbs-up"></span> Like
+          </a>
+          </span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>
