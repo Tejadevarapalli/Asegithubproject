@@ -1,18 +1,51 @@
 *{
   font-family: 'Open Sans', sans-serif;
 }
-
-
+div.Userdetails {
+  text-transform: capitalize;
+}
+div.detailstype
+{color: #337AB7;
+  width: 60%;
+  text-align: left;
+  padding-left: 30%;
+  padding-bottom: 1%;
+}
+div{
+  background-color: #7ac142;
+}
+.will {
+  margin-top: -20px;
+  background-color:#FFFFFF;
+  border:2px solid #0077B2;
+  text-align:center;
+  cursor:pointer;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px !important;
+  float: center;
+}
+.will:hover {
+  margin-top:-20px;
+  background-color:#0077B2;
+  border:2px solid #0077B2;
+  text-align:center;
+  cursor:pointer;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px !important;
+  border-bottom : 2px solid rgba(97, 203, 255, 0.65);
+}
 .well {
   margin-top:-20px;
   background-color:#FFFFFF;
   border:2px solid #0077B2;
   text-align:center;
   cursor:pointer;
-  font-size: 25px;
-  padding: 15px;
-  border-radius: 0px !important;
-  float: left;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px !important;
+  float: center;
 }
 .divider{
   width:50px;
@@ -25,9 +58,9 @@
   border:2px solid #0077B2;
   text-align:center;
   cursor:pointer;
-  font-size: 25px;
-  padding: 15px;
-  border-radius: 0px !important;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 10px !important;
   border-bottom : 2px solid rgba(97, 203, 255, 0.65);
 }
 
@@ -44,7 +77,7 @@ body {
 .bg_blur
 {
   background-image:url('http://data2.whicdn.com/images/139218968/large.jpg');
-  height: 300px;
+  height: 400px;
   background-size: cover;
 }
 
@@ -128,4 +161,3 @@ body {
     margin-top : 30px;
   }
 }
-
