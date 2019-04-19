@@ -6,15 +6,26 @@
     <div class="col-md-8  col-xs-12">
       <img src="https://image.flaticon.com/icons/png/512/64/64572.png" class="img-thumbnail picture hidden-xs" />
 
-      <div class="header">
-        <h1>Username</h1>
-        <h4>Developer</h4>
-        <span>If you can dream and not make dreams your master.."
-              If you can think and not make thoughts your aim.."
-          "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</span>
-      </div>
+      <div class="Userdetails" style="font-size: large;font-weight: bold;">
+
+        <span *ngFor='let Userdetails of Userdetails'>
+        <div >
+          <div class="detailstype" style=" float:left;">Username:</div>
+          <div style=" float:center">{{ Userdetails.Username }}</div>
+        </div>
+          <br>
+          <div>
+            <div class="detailstype" style=" float:left;">EmailID:</div>
+            <div style=" float:center">{{ Userdetails.EmailID }}</div>
+          </div>
+
+        </span>
+        <br>
+        <div>If you can dream and not make dreams your master.."
+          If you can think and not make thoughts your aim.."
+          "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."</div>
     </div>
-  </div>
+    </div></div>
 
   <div class="row nav">
     <div class="col-md-4"></div>

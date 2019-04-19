@@ -1,13 +1,37 @@
-<label> User : </label>{{ value[0].User|json }}
-<br>
-<br>
-<label> Project Titile : </label>{{ value[0].Projecttitle|json }}
-<br>
-<br>
-<label> Project Description  : </label>{{ value[0].ProjectDescription|json }}
-<br>
-<br>
-<label> GithubURL : </label>{{ value[0].GithubURL|json }}
-<br>
-<br>
-<label> Likes : </label>{{ value[0].Likes|json }}
+<div class='card'>
+  <div class='card-header' style="font-size: -webkit-xxx-large;padding-bottom:1%; font-weight: bold;color:aliceblue;background:  cadetblue;height: 83px;text-align: center;">
+    MODEL DETAILS
+  </div>
+  <div class="projectdetails" style="font-size: large;font-weight: bold;">
+
+
+
+      <span *ngFor='let projectdetails of projectdetails'>
+        <div >
+          <div class="detailstype" style=" float:left;">Project title:</div>
+          <div style=" float:left">{{ projectdetails.Projecttitle }}</div>
+        </div>
+        <br>
+        <div >
+          <div class="detailstype"  style=" float:left">Project Description:</div>
+          <div style=" float:left">{{ projectdetails.ProjectDescription }}</div>
+        </div>
+        <br>
+        <div>
+          <div class="detailstype"  style=" float:left">Email:</div>
+          <div style=" float:left">{{ projectdetails.User }}</div>
+        </div>
+        <br>
+        <div >
+          <div class="detailstype"  style=" float:left">Github URL:</div>
+          <a href="{{projectdetails.GithubURL}}" style=" float:left">{{ projectdetails.GithubURL }}</a>
+        </div>
+
+
+
+
+      </span>
+
+
+
+  </div>

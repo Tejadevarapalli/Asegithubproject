@@ -1,8 +1,19 @@
 *{
   font-family: 'Open Sans', sans-serif;
 }
-
-
+div.Userdetails {
+  text-transform: lowercase;
+}
+div.detailstype
+{color: #337AB7;
+  width: 60%;
+  text-align: left;
+  padding-left: 30%;
+  padding-bottom: 1%;
+}
+div{
+  background-color: #7ac142;
+}
 .well {
   margin-top:-20px;
   background-color:#FFFFFF;
@@ -11,7 +22,7 @@
   cursor:pointer;
   font-size: 25px;
   padding: 15px;
-  border-radius: 0px !important;
+  border-radius: 10px !important;
   float: left;
 }
 .divider{
@@ -27,7 +38,7 @@
   cursor:pointer;
   font-size: 25px;
   padding: 15px;
-  border-radius: 0px !important;
+  border-radius: 10px !important;
   border-bottom : 2px solid rgba(97, 203, 255, 0.65);
 }
 
@@ -44,7 +55,7 @@ body {
 .bg_blur
 {
   background-image:url('http://data2.whicdn.com/images/139218968/large.jpg');
-  height: 300px;
+  height: 400px;
   background-size: cover;
 }
 
