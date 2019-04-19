@@ -1,0 +1,17 @@
+thead {
+  color: #337AB7;
+}
+div.projectdetails {
+  text-transform: uppercase;
+}
+div.detailstype
+{color: #337AB7;
+width: 60%;
+  padding-left: 30%;
+  padding-bottom: 1%;
+}
+
+th {
+  background-color: cadetblue;
+  color: white;
+}

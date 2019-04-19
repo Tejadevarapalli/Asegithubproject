@@ -9,6 +9,7 @@ import {mongoService} from '../mongo.service';
   styleUrls: ['./view.component.css']
 })
 export class ViewComponent implements OnInit {
+  projectdetails: any;
 
   constructor(private route: ActivatedRoute, public service: mongoService) { }
   ngOnInit() {
@@ -16,6 +17,7 @@ export class ViewComponent implements OnInit {
     console.log(id);
     this.service.viewdetails(id).subscribe(result => {
     console.log(result);
+    this.projectdetails= result;
     });
   }
 
