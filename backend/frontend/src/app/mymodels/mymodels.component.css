@@ -1,7 +1,7 @@
 thead {
   color: #337AB7;
 }
-div.projectnames {
+a.projectnames {
   text-transform: uppercase;
 }
 th, td {

@@ -100,6 +100,25 @@ router.post('/signinDetails' ,function(req,res,next) {
 });
 
 
+router.post('/likecount',function (req ,res){
+    console.log(req.body.element);
+    modal.find({Projecttitle:req.body.element},function(err,data) {
+        console.log(data[0].Likes);
+        data[0].Likes+=1;
+        console.log('data',data[0].Likes);
+//       const update=_.assign({'Likes': data[0].Likes})
+        modal.update({Projecttitle: req.body.element}, {$set: { Likes: data[0].Likes}}, function (err, output) {
+            if(err)
+            {
+                res.send('error',err);
+            }
+            console.log(output);
+            res.json(output);
+        });
+    });
+});
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {

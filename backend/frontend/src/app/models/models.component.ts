@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mongoService} from '../mongo.service';
 import { IModelsprojects } from './modelsprojects';
+import {element} from "protractor";
 
 @Component({
   selector: 'app-models',
@@ -39,7 +40,17 @@ export class ModelsComponent implements OnInit {
       this.projects = result;
       this.filteredproject = this.projects;
     });
-
   }
+
+
+
+    like(element) {
+      console.log(element);
+      this.service.Likecount(element).subscribe( result => {
+        console.log(result);
+      })
+    }
+
+
 
 }

@@ -42,4 +42,9 @@ export class mongoService {
     let id = { userid };
     return this.http.post('http://localhost:3000/profiledetails', id);
   }
+
+  Likecount( element ) {
+    let name = { element};
+    return this.http.post('http://localhost:3000/Likecount', name);
+  }
 }

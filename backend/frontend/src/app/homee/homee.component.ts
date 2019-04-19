@@ -48,12 +48,14 @@ public projecttitle: any;
         User: new FormControl(),
         Projecttitle : new FormControl(),
         ProjectDescription : new FormControl(),
-        GithubURL : new FormControl()
+        GithubURL : new FormControl(),
+        Likes: new FormControl()
       });
   }
   onSubmit1() {
     console.log(this.form1.value),
       this.form1.value.User = this.route.snapshot.paramMap.get('id');
+    this.form1.value.Likes = 0;
     this.formDetails.sendDetails(this.form1.value).subscribe(result => {
       console.log('login check point result - ', result);
       /*this.formDetails.sendfilename(result.uploadname).subscribe( details => {
