@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http'
-import 'rxjs/Rx';
+import {until} from 'selenium-webdriver';
 
 
 @Injectable({
@@ -19,5 +19,10 @@ export class FileuploadService {
     });
   }
 
-
+  movefiles(filename,username,projectname) {
+    var body = {filename: filename, username: username, projectname: projectname};
+    return this.http.post('http://localhost:3000/file/movefile', body,{
+      headers:new HttpHeaders().append('content-type','application/json')
+    });
+  }
 }

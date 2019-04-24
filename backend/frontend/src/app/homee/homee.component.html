@@ -1,7 +1,8 @@
 <form [formGroup]="form1" (ngSubmit)="onSubmit1()" xmlns="http://www.w3.org/1999/html">
   <div class="form-group">
     <label for="Projecttitle">Project title</label>
-    <input type="text" class="form-control" id="Projecttitle" formControlName="Projecttitle" aria-describedby="title" placeholder="Title" [(ngModel)]="projecttitle">
+    <input type="text" class="form-control" id="Projecttitle" formControlName="Projecttitle" aria-describedby="title" placeholder="Title"
+           [(ngModel)]="projecttitle">
     <small id="title" class="form-text text-muted">Based on the field of project</small>
   </div>
   <div class="form-group">

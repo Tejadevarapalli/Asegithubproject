@@ -5,6 +5,7 @@ var signup = require('../routes/models/signup.js');
 var mongoose = require('mongoose');
 
 
+
  mongoose.connect('mongodb+srv://dteja:Teja.144@cluster0-bbmeb.mongodb.net/test?retryWrites=true')
      .then(() => console.log('connection successful'))
     .catch((err) => console.error(err));
@@ -16,11 +17,16 @@ var mongoose = require('mongoose');
 router.post('/sendDetails', function (req, res, next) {
 
     console.log(req.body);
-    modal.create(req.body, function (err, post) {
-        console.log(post)
-        if (err) return next(err);
-        res.json(post);
-    });
+    if(req.body.Projecttitle !==null && req.body.ProjectDescription) {
+        modal.create(req.body, function (err, post) {
+            console.log(post)
+            if (err) return next(err);
+            res.json(post);
+        });
+    }
+    else{
+        res.json('incomplete details');
+    }
 });
 
 router.post('/signupDetails', function (req, res, next) {
@@ -136,6 +142,7 @@ else
 router.get('/', function(req, res, next) {
     res.send('welcome to backend');
 });
+
 
 
 

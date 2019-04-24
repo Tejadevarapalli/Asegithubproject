@@ -1,16 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { FileSelectDirective, FileUploader} from 'ng2-file-upload';
+import { FormControl, FormGroup } from '@angular/forms';
+import { FileUploader} from 'ng2-file-upload';
 import {FileuploadService} from '../fileupload.service';
 import {saveas} from 'file-saver';
 import { mongoService } from '../mongo.service';
-import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import  { HttpHeaders} from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 import {HomeComponent} from '../home/home.component';
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
+
+
 
 const uri = 'http://localhost:3000/file/upload';
 
@@ -22,17 +24,19 @@ const uri = 'http://localhost:3000/file/upload';
 export class HomeeComponent implements OnInit {
 public projecttitle: any;
   form1: FormGroup;
-  uploader: FileUploader = new FileUploader({url: uri});
+  filedata: any;
+  uploader: FileUploader = new FileUploader({url: uri });
   attachmentList: any = [];
 
   constructor(private _fileService: FileuploadService, public formDetails: mongoService,
               public route: ActivatedRoute,public router: Router, public home: HomeComponent) {
-    this.uploader.onCompleteItem = (item: any, response: any, status: any, headers: any) => {
-      console.log(this.uploader);
-      console.log(item);
-      console.log(response);
-      this.attachmentList.push(JSON.parse(response));
-    };
+    this.uploader.onCompleteItem = (item: any, response: any) => {
+      this.filedata = JSON.parse(response);
+      console.log(this.filedata.originalname);
+      this._fileService.movefiles(this.filedata.originalname,this.route.snapshot.paramMap.get('id'), this.projecttitle).subscribe(data =>{
+        console.log(data);
+      })
+    }
   }
 
   download(index){
@@ -56,7 +60,7 @@ public projecttitle: any;
       });
   }
   onSubmit1() {
-    console.log(this.form1.value),
+    console.log(this.form1.value);
       this.form1.value.User = this.route.snapshot.paramMap.get('id');
     this.form1.value.Likes = 0;
     this.formDetails.sendDetails(this.form1.value).subscribe(result => {

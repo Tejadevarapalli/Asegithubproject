@@ -53,6 +53,7 @@ export class MymodelsComponent implements OnInit {
     this.getDetails.Deletemodal(element).subscribe(result => {
       console.log(result);
       alert(result);
+      this.ngOnInit();
     });
   }
 }
