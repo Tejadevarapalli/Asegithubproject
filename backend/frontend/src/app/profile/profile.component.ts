@@ -8,12 +8,13 @@ import { mongoService} from '../mongo.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-
+public Userdetails:any;
   constructor(public router: Router, public route: ActivatedRoute, public service: mongoService) { }
 
   ngOnInit() {
     this.service.profiledetails(this.route.snapshot.paramMap.get('id')).subscribe(details => {
       console.log(details);
+      this.Userdetails=details;
     });
   }
 
