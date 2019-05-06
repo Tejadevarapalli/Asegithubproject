@@ -52,4 +52,11 @@ export class mongoService {
     let name = { element};
     return this.http.post('http://localhost:3000/Deletemodal', name);
   }
+
+  profiledetail( Email, about ) {
+    let id = { Email, about};
+    console.log('id tere:', id);
+    return this.http.post('http://localhost:3000/profileabout', id);
+
+  }
 }

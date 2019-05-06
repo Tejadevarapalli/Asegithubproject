@@ -15,3 +15,14 @@ th {
   background-color: cadetblue;
   color: white;
 }
+
+div.header{
+  font-weight: bold;
+  color:aliceblue;
+  height: 200%;
+  text-align: center;
+  box-shadow: 0 0 black;
+  text-shadow: 0 0 11px black;
+  padding: 2% 2%;
+  background-color: #991111; border-radius: 10px;
+}

@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var modal = require('../routes/models/modalupload.js');
 var signup = require('../routes/models/signup.js');
+var profile= require('../routes/models/profileabout.js');
 var mongoose = require('mongoose');
 
 
@@ -19,7 +20,7 @@ router.post('/sendDetails', function (req, res, next) {
     console.log(req.body);
     if(req.body.Projecttitle !==null && req.body.ProjectDescription) {
         modal.create(req.body, function (err, post) {
-            console.log(post)
+            console.log(post);
             if (err) return next(err);
             res.json(post);
         });
@@ -27,6 +28,28 @@ router.post('/sendDetails', function (req, res, next) {
     else{
         res.json('incomplete details');
     }
+});
+
+
+router.post('/profileabout',function(req,res,next) {
+    console.log(req.body);
+    profile.find({EmailID: req.body.EmailID}, function (err, data) {
+        if (data.length <= 0) {
+            profile.create(req.body, function (err, post) {
+                console.log(post);
+                if (err) return next(err);
+                res.json(post);
+            });
+        } else {
+            profile.update({EmailID: req.body.Email}, {$set: {about: req.body.about}}, function (err, output) {
+                if (err) {
+                    res.send('error', err);
+                }
+                console.log(output);
+                res.json(output);
+            });
+        }
+    });
 });
 
 router.post('/signupDetails', function (req, res, next) {

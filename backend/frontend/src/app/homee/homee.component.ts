@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FileUploader} from 'ng2-file-upload';
 import {FileuploadService} from '../fileupload.service';
-import {saveas} from 'file-saver';
 import { mongoService } from '../mongo.service';
 import  { HttpHeaders} from '@angular/common/http';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router';
@@ -35,19 +34,11 @@ public projecttitle: any;
       console.log(this.filedata.originalname);
       this._fileService.movefiles(this.filedata.originalname,this.route.snapshot.paramMap.get('id'), this.projecttitle).subscribe(data =>{
         console.log(data);
-      })
-    }
+      });
+    };
   }
 
-  download(index){
-    var filename = this.attachmentList[index].uploadname;
 
-    this._fileService.downloadFile(filename)
-      .subscribe(
-        data => saveas(data, filename),
-        error => console.error(error)
-      );
-  }
 
   ngOnInit() {
     this.form1 = new FormGroup(

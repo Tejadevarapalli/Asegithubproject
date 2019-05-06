@@ -10,6 +10,7 @@
 body.modal-ku {
   width: 750px;
   margin: auto;
+
 }
 
 .modal-body {
@@ -18,9 +19,57 @@ body.modal-ku {
 }
 
 .header{
-  background-color: skyblue;
+  background-color: lightblue;
   padding: 10px;
   border-radius: 30px;
 }
 
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
 
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
+
+.carousel-inner img {
+  width: 100%; /* Set width to 100% */
+  margin: auto;
+  min-height:200px;
+}
+
+/* Hide the carousel text when the screen is less than 600 pixels wide */
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none;
+  }
+}
+
+.upload{
+  background-image: url('..\img\1.JPG');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: -webkit-fill-available;
+}
+.modelupload{
+  padding: 10% 50%;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+}
+.rating > span {
+  display: inline-flex;
+  position: relative;
+  width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+}

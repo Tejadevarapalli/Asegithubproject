@@ -1,12 +1,9 @@
 
-<div class='card'>
-  <div class='card-header' style="font-size: -webkit-xxx-large;padding-bottom:1%; font-weight: bold;color:aliceblue;background:  cadetblue;height: 83px;text-align: center;">
+  <div class='header'>
     MODEL DETAILS
   </div>
     <div class="projectdetails" style="font-size: large;font-weight: bold;">
-
-
-
+<div>
       <span *ngFor='let projectdetails of projectdetails'>
         <div >
           <div class="detailstype" style=" float:left;">Project title:</div>
@@ -32,12 +29,7 @@
           <div class="detailstype"  style=" float:left">Likes:</div>
          <div style=" float:left">{{ projectdetails.Likes }}</div>
         </div>
-
-
-
-
       </span>
-
-
-
 </div>
+      <button (click)="download()">Download</button>
+    </div>

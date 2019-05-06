@@ -2,11 +2,12 @@ var express = require('express');
 var _router = express.Router();
 var multer = require('multer');
 var path = require('path');
-var Dir='';
+var Dir=''
 var md= require('mkpath');
 var fs=require('file-system');
 var fs1=require('fs');
-
+//var zip=require('zip-folder');
+var Archiver=require('archiver');
  var store = multer.diskStorage({
      destination: function(req,file,cb){
  console.log(Dir);
@@ -51,9 +52,31 @@ _router.post('/movefile',function (req,res) {
 });
 
 
-_router.post('/download', function(req,res,next){
-    filepath = path.join(__dirname,'./uploads') +'/'+ req.body.filename;
-    res.sendFile(filepath);
+// _router.post('/download', function(req,res,next){
+//
+//     let filepath = path.join(__dirname,'./uploads' +'/'+req.body.user+'/' + req.body.projecttitle);
+//     zip(filepath,filepath+'.zip',function(err){
+//         if(err){
+//             console.log('unable to zip');
+//         }
+//         else{
+//             console.log('zip done');
+//         }
+//     });
+//     return res.sendFile(filepath);
+// });
+
+_router.get('/download/:user/:id', (req, response) => {
+
+    response.writeHead(200, {
+        'Content-Type': 'application/zip',
+        'Content-disposition': 'attachment; filename='+req.params.id+'.zip'
+    });
+    var zip = Archiver('zip');
+    zip.pipe(response);
+    zip.directory('../uploads/'+req.params.user+'/'+req.params.id, false)
+        .finalize();
 });
+
 
 module.exports = _router;
