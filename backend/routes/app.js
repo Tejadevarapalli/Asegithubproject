@@ -3,6 +3,7 @@ var router = express.Router();
 var modal = require('../routes/models/modalupload.js');
 var signup = require('../routes/models/signup.js');
 var profile= require('../routes/models/profileabout.js');
+var comment= require('../routes/models/comment.js');
 var mongoose = require('mongoose');
 
 
@@ -28,6 +29,15 @@ router.post('/sendDetails', function (req, res, next) {
     else{
         res.json('incomplete details');
     }
+});
+
+router.post('/comment',function(req,res,next) {
+console.log(req.body);
+    comment.create(req.body, function (err, post) {
+        console.log(post);
+        if (err) return next(err);
+        res.json(post);
+    });
 });
 
 
@@ -82,6 +92,13 @@ router.post('/signupDetails', function (req, res, next) {
      });
 });
 
+
+ router.post('/commentdetails',function(req,res){
+     console.log(req.body.title);
+     comment.find({Project: req.body.title},function(err,data){
+         res.json(data);
+     });
+ })
 
 router.get('/modelsDetails',function (req ,res){
     modal.find({},function(err,data){

@@ -21,8 +21,15 @@ export class ViewComponent implements OnInit {
   
   onSubmit() {
 
-    this.form.value.User = this.route.snapshot.paramMap.get('user')
-    console.log(this.form.value);
+    this.form.value.User = this.route.snapshot.paramMap.get('user');
+    console.log(this.form.value.User);
+    console.log(this.route.snapshot.paramMap.get('id'));
+    console.log(this.form.value.Comment);
+    this.service.comment(this.form.value.User, this.route.snapshot.paramMap.get('id'), this.form.value.Comment).subscribe(data =>{
+    console.log(data);
+    this.form.reset();
+    this.ngOnInit();
+    });
   }
 
   ngOnInit() {
@@ -34,10 +41,15 @@ export class ViewComponent implements OnInit {
       });
     let id = this.route.snapshot.paramMap.get('id');
     console.log(id);
+
+    this.service.commentdetails(id).subscribe(result => {
+      console.log(result);
+    });
     this.service.viewdetails(id).subscribe(result => {
       console.log(result);
       this.projectdetails = result;
     });
+
 
   }
     download()

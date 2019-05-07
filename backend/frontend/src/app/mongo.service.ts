@@ -57,6 +57,14 @@ export class mongoService {
     let id = { Email, about};
     console.log('id tere:', id);
     return this.http.post('http://localhost:3000/profileabout', id);
-
   }
+  comment(User, Project, Comment){
+    let id ={User, Project, Comment};
+    return this.http.post('http://localhost:3000/comment',id);
+  }
+  commentdetails(title) {
+    let id= {title};
+    return this.http.post('http://localhost:3000/commentdetails',id);
+  }
+
 }
