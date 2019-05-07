@@ -43,9 +43,19 @@
           <button type="submit"  class="btn btn-primary btn-lg btn-bloc">Submit</button>
         </div>
       </form>
+      <div class="comment details">
+     <span *ngFor='let commentdetails of commentdetails'>
+
+        <div  style=" float:left; color: lightblue">{{ commentdetails.User }}:</div>
+       <br>
+      <div style=" float:left">{{ commentdetails.Comment }}</div>
+       <br>
+     </span>
+      </div>
 
     </div>
   </div>
+  <div class="display comments"></div>
 </div>
 
 

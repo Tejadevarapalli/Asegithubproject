@@ -14,22 +14,22 @@ import {HomeComponent} from '../home/home.component';
 })
 export class ViewComponent implements OnInit {
   projectdetails: object;
+  commentdetails: object;
   form: FormGroup;
 
   constructor(private route: ActivatedRoute, public service: mongoService, public dservice: FileuploadService,
               public home: HomeComponent) { }
-  
-  onSubmit() {
 
-    this.form.value.User = this.route.snapshot.paramMap.get('user');
-    console.log(this.form.value.User);
-    console.log(this.route.snapshot.paramMap.get('id'));
-    console.log(this.form.value.Comment);
-    this.service.comment(this.form.value.User, this.route.snapshot.paramMap.get('id'), this.form.value.Comment).subscribe(data =>{
-    console.log(data);
-    this.form.reset();
-    this.ngOnInit();
-    });
+  onSubmit() {
+      this.form.value.User = this.route.snapshot.paramMap.get('user');
+      console.log(this.form.value.User);
+      console.log(this.route.snapshot.paramMap.get('id'));
+      console.log(this.form.value.Comment);
+      this.service.comment(this.form.value.User, this.route.snapshot.paramMap.get('id'), this.form.value.Comment).subscribe(data => {
+        console.log(data);
+        this.form.reset();
+        this.ngOnInit();
+      });
   }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class ViewComponent implements OnInit {
     console.log(id);
 
     this.service.commentdetails(id).subscribe(result => {
-      console.log(result);
+      this.commentdetails = result;
     });
     this.service.viewdetails(id).subscribe(result => {
       console.log(result);
