@@ -10,7 +10,6 @@ import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class ModelsComponent implements OnInit {
   public username = this.route.snapshot.paramMap.get('id') ;
-
   listFilter1 = '';
   get listFilter(): string {
     return this.listFilter1;

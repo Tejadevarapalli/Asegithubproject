@@ -5,7 +5,7 @@ thead {
 div.projectdetails {
   font-style: italic ;
 
-  text-transform: uppercase;
+  text-transform:capitalize ;
   width: 100%;
 }
 div.detailstype
