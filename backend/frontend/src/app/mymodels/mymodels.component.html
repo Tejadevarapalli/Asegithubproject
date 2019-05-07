@@ -1,6 +1,7 @@
 <div class='card'>
-  <div class='card-header' style="font-size: -webkit-xxx-large;text-align: center;font-weight: bold;color:aliceblue;background:  cadetblue;height: 83px;text-align: center;">
-    {{pageTitle}}
+  <div class='card-header name' style="font-size: -webkit-xxx-large;text-align: center;
+  font-weight: bold;color:cornflowerblue;background-color: blanchedalmond;height: 83px;text-align: center;">
+    My Models
   </div>
 <div class='card-body'>
   <div class='row'>
@@ -14,17 +15,12 @@
   <div class='table-responsive'>
     <table class='table'
            *ngIf='projects && projects.length'>
-      <thead>
-      <tr>
-        <th style="font-size: x-large;text-align: center">Models</th>
-      </tr>
-      </thead>
       <tbody>
 
       <tr *ngFor='let project of filteredproject'>
 
         <td >
-          <a class="projectnames"  [routerLink]="['/view/'+ project.Projecttitle]" style="font-size: x-large;padding-left: 34%;">
+          <a class="projectnames"  [routerLink]="['/view/'+username+'/'+project.Projecttitle]" style="font-size: x-large;padding-left: 34%;">
             {{ project.Projecttitle }}
           </a>
         </td>

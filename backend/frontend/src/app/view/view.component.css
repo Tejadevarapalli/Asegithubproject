@@ -1,15 +1,31 @@
+
 thead {
   color: #337AB7;
 }
 div.projectdetails {
+  font-style: italic ;
+
   text-transform: uppercase;
+  width: 100%;
 }
 div.detailstype
 {color: #337AB7;
-width: 60%;
-  padding-left: 30%;
+  width: 60%;
+  padding-left: 10%;
   padding-bottom: 1%;
 }
+div.details1
+{
+  width: 50%;
+  float: left;
+
+}
+div.details2
+{
+  width: 50%;float: right;
+
+}
+
 
 th {
   background-color: cadetblue;

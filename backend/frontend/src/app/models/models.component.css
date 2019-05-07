@@ -2,7 +2,8 @@ thead {
   color: #337AB7;
 }
 a.projectnames {
-  text-transform: uppercase;
+  text-transform: capitalize;
+  font-style: italic;
 }
 th, td {
   text-align: left;
@@ -11,6 +12,9 @@ th, td {
   height: 53px;
 }
 
+.name{
+  font-style: italic;
+}
 
 tr:nth-child(even){background-color: #f2f2f2}
 

@@ -4,6 +4,8 @@ import { switchMap } from 'rxjs/operators';
 import {mongoService} from '../mongo.service';
 import {saveas} from 'file-saver';
 import {FileuploadService} from '../fileupload.service';
+import {FormControl, FormGroup} from '@angular/forms';
+import {HomeComponent} from '../home/home.component';
 
 @Component({
   selector: 'app-view',
@@ -12,26 +14,42 @@ import {FileuploadService} from '../fileupload.service';
 })
 export class ViewComponent implements OnInit {
   projectdetails: object;
+  form: FormGroup;
 
-  constructor(private route: ActivatedRoute, public service: mongoService, public dservice: FileuploadService) { }
+  constructor(private route: ActivatedRoute, public service: mongoService, public dservice: FileuploadService,
+              public home: HomeComponent) { }
+  
+  onSubmit() {
+
+    this.form.value.User = this.route.snapshot.paramMap.get('user')
+    console.log(this.form.value);
+  }
+
   ngOnInit() {
+    this.form = new FormGroup(
+      {
+        projecttitle: new FormControl(),
+        Comment: new FormControl(),
+        User: new FormControl()
+      });
     let id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.service.viewdetails(id).subscribe(result => {
-    console.log(result);
-    this.projectdetails = result;
+      console.log(result);
+      this.projectdetails = result;
     });
-  }
 
-  download() {
-    console.log(this.projectdetails);
-  // this.dservice.downloadFile(this.projectdetails[0].User, this.projectdetails[0].Projecttitle)
-  //      .subscribe(
-  //        data => console.log(data),
-  //        error => console.error(error)
-  //      );
-    window.open('http://localhost:3000/file/download/' + this.projectdetails[0].User + '/' + this.projectdetails[0].Projecttitle);
   }
+    download()
+    {
+      console.log(this.projectdetails);
+      // this.dservice.downloadFile(this.projectdetails[0].User, this.projectdetails[0].Projecttitle)
+      //      .subscribe(
+      //        data => console.log(data),
+      //        error => console.error(error)
+      //      );
+      window.open('http://localhost:3000/file/download/' + this.projectdetails[0].User + '/' + this.projectdetails[0].Projecttitle);
+    }
 
 
 }

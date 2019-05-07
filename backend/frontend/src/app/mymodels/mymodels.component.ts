@@ -9,7 +9,7 @@ import { Router, ActivatedRoute, ParamMap} from '@angular/router';
   styleUrls: ['./mymodels.component.css']
 })
 export class MymodelsComponent implements OnInit {
-  pageTitle = 'MYMODELS';
+  public username = this.route.snapshot.paramMap.get('id') ;
 
   listFilter1 = '';
   get listFilter(): string {

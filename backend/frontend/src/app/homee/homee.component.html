@@ -22,8 +22,8 @@
   </div>
   <div>
   <div class="uploadList" *ngFor="let item of uploader.queue">
-  <div class="col-sm-1">{{item.file.name}}</div>
-  <div class="col-sm-1">
+  <div class="col-sm-1" style="max-width: 30%">{{item.file.name}}</div>
+  <div class="col-sm-1" style="max-width: 50%;">
   <div class="progress">
   <div class="progress-bar bg-success"
   [ngStyle]="{'width':item.progress+'%'}"></div>
@@ -35,18 +35,11 @@
   </div>
   </div>
   </div>
-  <div class="row" *ngIf="uploader?.queue?.length > 0">
-  <button type="button" class="btn btn-primary" (click)="uploader.uploadAll()">Upload All</button>
+  <div class="row" style="padding-top: 3%;padding-left: 5%" *ngIf="uploader?.queue?.length > 0">
+  <button type="button" class="btn btn-primary"  (click)="uploader.uploadAll()">Upload All</button>
   </div>
-  <!--<div class="row card">-->
-  <!--<h4>Download Section</h4>-->
 
-  <!--<div class="row" *ngFor="let item of attachmentList; let i = index"-->
-  <!--style="margin:10px;padding:5px;background-color:rgb(231, 229, 229); border-radius:5px; line-height:40px;">-->
-  <!--<div class="col-sm-7">{{item.originalname}}</div>-->
-  <!--<div class="col-sm-5" style="text-align:center;"><button type="button" class="btn btn-primary" (click)="download(i)">Download</button></div>-->
-  <!--</div>-->
-  <!--</div>-->
+  <br>
   <div class="col-md-2"></div>
-  <button type="submit"  class="btn btn-info btn-lg">Submit</button>
+  <button type="submit"  class="btn btn-primary btn-lg btn-bloc">Submit</button>
 </form>

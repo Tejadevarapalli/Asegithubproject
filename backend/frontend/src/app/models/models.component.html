@@ -1,9 +1,9 @@
 <div class='card'>
-  <div class='card-header'
+  <div class='card-header name'
        style="font-size: -webkit-xxx-large;text-align: center;
-       font-weight: bold;color:aliceblue;background:cadetblue;
+       font-weight: bold;color:cornflowerblue;background-color: blanchedalmond;
        height: 83px;">
-    {{pageTitle}}
+    MODELS
   </div>
   <div class='card-body'>
     <div class='row'>
@@ -17,21 +17,15 @@
     <div class='table-responsive'>
       <table class='table'
              *ngIf='projects && projects.length'>
-        <thead>
-        <tr>
-          <th style="font-size: x-large;text-align: center;width: 100%">Models</th>
-        </tr>
-        </thead>
         <tbody>
-
         <tr *ngFor='let project of filteredproject'>
 
           <td>
-            <a class="projectnames"  [routerLink]="['/view/'+ project.Projecttitle]" style="font-size: x-large;padding-left: 34%;">
+            <a class="projectnames"  [routerLink]="['/view/'+username+'/'+project.Projecttitle]" style="font-size: x-large;padding-left: 34%;">
               {{ project.Projecttitle }}
             </a>
           </td>
-          <button type="button" class="btn btn-info btn-lg" (click)="like(project.Projecttitle)">Like</button>
+          <button type="button" class="btn btn-outline-info" (click)="like(project.Projecttitle)">Like</button>
         </tr>
         </tbody>
       </table>

@@ -13,7 +13,8 @@ import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 display = 'none';
-  constructor(private route: ActivatedRoute,private router: Router) {
+public username = this.route.snapshot.paramMap.get('id');
+  constructor(public route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -30,6 +31,11 @@ display = 'none';
   mymodels()
   {
     this.router.navigateByUrl('/mymodels/' + this.route.snapshot.paramMap.get('id'));
+  }
+
+  models()
+  {
+    this.router.navigateByUrl('/models/' + this.route.snapshot.paramMap.get('id'));
   }
 
   profile()

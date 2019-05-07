@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { mongoService} from '../mongo.service';
 import { IModelsprojects } from './modelsprojects';
-import {element} from "protractor";
+import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-models',
@@ -9,7 +9,7 @@ import {element} from "protractor";
   styleUrls: ['./models.component.css']
 })
 export class ModelsComponent implements OnInit {
-  pageTitle = 'MODELS';
+  public username = this.route.snapshot.paramMap.get('id') ;
 
   listFilter1 = '';
   get listFilter(): string {
@@ -29,7 +29,7 @@ export class ModelsComponent implements OnInit {
       project.Projecttitle.toLocaleLowerCase().indexOf(filterBy) !== -1);
   }
 
-  constructor(private service: mongoService) {
+  constructor(private service: mongoService,public route:ActivatedRoute) {
     this.filteredproject = this.projects;
 
   }
